@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' show Client;
+import 'package:silent_moon/counter.dart';
+import 'package:silent_moon/user_repository.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,7 +13,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Silent Moon',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
@@ -28,12 +32,16 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  late final Counter _counter;
+  late final Client _client;
+  late final UserRepository _userRepository;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+  @override
+  void initState() {
+    _counter = Counter();
+    _client = Client();
+    _userRepository = UserRepository(_client);
+    super.initState();
   }
 
   @override
@@ -49,14 +57,19 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             const Text('You have pushed the button this many times:'),
             Text(
-              '$_counter',
+              '${_counter.count}',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: () {
+          setState(() {
+            _counter.incrementCounter();
+            _userRepository.getUserById(_counter.count);
+          });
+        },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
