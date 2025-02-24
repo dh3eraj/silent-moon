@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:get/state_manager.dart';
 import 'package:silent_moon/data/app_exception.dart';
 import 'package:silent_moon/model/counter/user_data_response_model.dart';
@@ -33,10 +31,8 @@ class CounterViewModel extends GetxController {
     try {
       final user = await _counterRepository.getUserById(userId);
       _currentUser = user.obs;
-      log(_currentUser?.value.toJson().toString() ?? "");
     } on AppException catch (e, _) {
       _currentUser = null;
-      log(e.message);
     }
   }
 }
