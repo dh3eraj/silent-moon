@@ -1,8 +1,7 @@
-import 'dart:developer';
-
 import 'package:get/state_manager.dart';
 import 'package:silent_moon/data/app_exception.dart';
-import 'package:silent_moon/model/counter/user_data_response_model.dart';
+import 'package:silent_moon/data/response/status.dart';
+import 'package:silent_moon/model/counter/user_model.dart';
 import 'package:silent_moon/repository/counter/counter_repository.dart';
 
 class CounterViewModel extends GetxController {
@@ -10,8 +9,12 @@ class CounterViewModel extends GetxController {
   CounterViewModel(this._counterRepository);
   RxInt _counter = 0.obs;
   RxInt get count => _counter;
-  late Rx<User>? _currentUser;
-  Rx<User>? get currentUser => _currentUser;
+  late Rx<UserModel?>? _currentUser;
+  Rx<UserModel?>? get currentUser => _currentUser;
+  late List<UserModel> _users;
+  List<UserModel> get users => _users;
+  late Rx<Status> _status;
+  Rx<Status> get status => _status;
 
   void incrementCounter() {
     _counter++;
@@ -30,13 +33,24 @@ class CounterViewModel extends GetxController {
   }
 
   Future<void> getUserById(int userId) async {
+    _currentUser = UserModel().obs;
     try {
       final user = await _counterRepository.getUserById(userId);
-      _currentUser = user.obs;
-      log(_currentUser?.value.toJson().toString() ?? "");
+      _currentUser?.value = user;
     } on AppException catch (e, _) {
-      _currentUser = null;
-      log(e.message);
+      // _currentUser?.value = null;
+    }
+  }
+
+  Future<void> getUsers() async {
+    _status = Status.loading.obs;
+    try {
+      final users = await _counterRepository.getUsers();
+      _users = users ?? [];
+      _status.value = Status.loaded;
+    } on AppException catch (e, _) {
+      _users = [];
+      _status.value = Status.error;
     }
   }
 }
