@@ -1,12 +1,14 @@
+import 'package:silent_moon/model/counter/user_model.dart';
+
 class UserDataResponseModel {
-  final User? data;
+  final UserModel? data;
   final Support? support;
 
   UserDataResponseModel({this.data, this.support});
 
   factory UserDataResponseModel.fromJson(Map<String, dynamic> json) {
     return UserDataResponseModel(
-      data: json["data"] == null ? null : User.fromJson(json["data"]),
+      data: json["data"] == null ? null : UserModel.fromJson(json["data"]),
       support:
           json["support"] == null ? null : Support.fromJson(json["support"]),
     );
@@ -18,31 +20,6 @@ class UserDataResponseModel {
   };
 }
 
-class User {
-  final int? id;
-  final String? email;
-  final String? firstName;
-  final String? lastName;
-  final String? avatar;
-
-  User({this.id, this.email, this.firstName, this.lastName, this.avatar});
-
-  factory User.fromJson(Map<String, dynamic> json) => User(
-    id: json["id"],
-    email: json["email"],
-    firstName: json["first_name"],
-    lastName: json["last_name"],
-    avatar: json["avatar"],
-  );
-
-  Map<String, dynamic> toJson() => {
-    "id": id,
-    "email": email,
-    "first_name": firstName,
-    "last_name": lastName,
-    "avatar": avatar,
-  };
-}
 
 class Support {
   final String? url;
