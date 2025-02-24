@@ -35,8 +35,8 @@ class CounterViewModel extends GetxController {
       _currentUser = user.obs;
       log(_currentUser?.value.toJson().toString() ?? "");
     } on AppException catch (e, _) {
-            _currentUser = null;
-
+      _currentUser = null;
+      log(e.message);
     }
   }
 }

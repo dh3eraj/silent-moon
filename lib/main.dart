@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:silent_moon/config/dependency_injection.dart';
 import 'package:silent_moon/config/routes.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await DependencyInjection.setupServiceLocator();
   runApp(const MyApp());
 }
 
@@ -22,4 +25,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-

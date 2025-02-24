@@ -19,7 +19,7 @@ class CounterRepository {
     } on SocketException {
       throw InternetException();
     } catch (e) {
-      rethrow;
+      throw AppException();
     }
   }
 }
