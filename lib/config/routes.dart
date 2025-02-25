@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
@@ -50,15 +49,12 @@ class AppRoutes {
         name: users,
         path: "/users",
         builder: (context, state) {
-          log(state.path.toString());
-
           return UserListScreen();
         },
         routes: [
           GoRoute(
             path: "/:id",
             builder: (context, state) {
-              log(state.path.toString());
               return UserDetailsScreen(
                 userId: int.parse(state.pathParameters["id"] ?? "1"),
               );

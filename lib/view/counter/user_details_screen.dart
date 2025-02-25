@@ -22,26 +22,28 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
 
   @override
   Widget build(context) {
-    return Obx(() {
-      switch (controller.userStatus.value) {
-        case Status.loading:
-          return Center(child: CircularProgressIndicator());
-        case Status.loaded:
-          return Scaffold(
-            appBar: AppBar(title: Text(controller.currentUser.firstName ?? "")),
-            body: ListTile(
-              leading: CircleAvatar(
-                backgroundImage: NetworkImage(controller.currentUser.avatar ?? ""),
+    return Material(
+      child: Obx(() {
+        switch (controller.userStatus.value) {
+          case Status.loading:
+            return Center(child: CircularProgressIndicator());
+          case Status.loaded:
+            return Scaffold(
+              appBar: AppBar(title: Text(controller.currentUser.firstName ?? "")),
+              body: ListTile(
+                leading: CircleAvatar(
+                  backgroundImage: NetworkImage(controller.currentUser.avatar ?? ""),
+                ),
+                title: Text(
+                  "${controller.currentUser.firstName ?? ""} ${controller.currentUser.lastName ?? ""}",
+                ),
+                subtitle: Text(controller.currentUser.email ?? ""),
               ),
-              title: Text(
-                "${controller.currentUser.firstName ?? ""} ${controller.currentUser.lastName ?? ""}",
-              ),
-              subtitle: Text(controller.currentUser.email ?? ""),
-            ),
-          );
-        case Status.error:
-          return Center(child: Text("something went wrong"));
-      }
-    });
+            );
+          case Status.error:
+            return Center(child: Text("something went wrong"));
+        }
+      }),
+    );
   }
 }
