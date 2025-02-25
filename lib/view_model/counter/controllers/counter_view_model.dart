@@ -9,13 +9,15 @@ class CounterViewModel extends GetxController {
   CounterViewModel(this._counterRepository);
   RxInt _counter = 0.obs;
   RxInt get count => _counter;
-  late Rx<UserModel?>? _currentUser;
-  Rx<UserModel?>? get currentUser => _currentUser;
+  late UserModel _currentUser;
+  UserModel get currentUser => _currentUser;
   late List<UserModel> _users;
   List<UserModel> get users => _users;
-  late Rx<Status> _status;
-  Rx<Status> get status => _status;
+  late Rx<Status> _usersStatus;
+  Rx<Status> get usersStatus => _usersStatus;
 
+  late Rx<Status> _userStatus;
+  Rx<Status> get userStatus => _userStatus;
   void incrementCounter() {
     _counter++;
   }
@@ -33,24 +35,26 @@ class CounterViewModel extends GetxController {
   }
 
   Future<void> getUserById(int userId) async {
-    _currentUser = UserModel().obs;
+    _userStatus = Status.loading.obs;
+
     try {
       final user = await _counterRepository.getUserById(userId);
-      _currentUser?.value = user;
+      _currentUser = user;
+      _userStatus.value = Status.loaded;
     } on AppException catch (e, _) {
-      // _currentUser?.value = null;
+      _userStatus.value = Status.error;
     }
   }
 
   Future<void> getUsers() async {
-    _status = Status.loading.obs;
+    _usersStatus = Status.loading.obs;
     try {
       final users = await _counterRepository.getUsers();
       _users = users ?? [];
-      _status.value = Status.loaded;
+      _usersStatus.value = Status.loaded;
     } on AppException catch (e, _) {
       _users = [];
-      _status.value = Status.error;
+      _usersStatus.value = Status.error;
     }
   }
 }

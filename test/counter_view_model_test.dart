@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' show Client, Response;
 import 'package:mocktail/mocktail.dart' show Mock, when;
@@ -95,20 +93,19 @@ void main() {
             ''', 200),
       );
 
-      await counter.getUserById(id);
-      expect(counter.currentUser?.value, isA<UserModel>());
+      final user = await counterRepository.getUserById(id);
+      expect(user, isA<UserModel>());
     });
 
-    test('given user id when called then should throw Exception', () async {
+    test('given user id when called then should throw AppException', () async {
       final int id = 50;
 
       when(
         () => mockClient.get(Uri.parse("https://reqres.in/api/users/$id")),
       ).thenAnswer((_) async => Response("{}", 404));
 
-      await counter.getUserById(id);
-      log(counter.currentUser?.value.toString() ?? "");
-      expect(counter.currentUser?.value, isA<UserModel?>());
+      final user = counterRepository.getUserById(id);
+      expect(user, throwsException);
     });
   });
   tearDown(() {
