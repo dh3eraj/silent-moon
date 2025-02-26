@@ -1,6 +1,7 @@
 import 'package:get/state_manager.dart';
 import 'package:silent_moon/data/app_exception.dart';
 import 'package:silent_moon/data/response/status.dart';
+import 'package:silent_moon/model/counter/message_model.dart';
 import 'package:silent_moon/model/counter/user_model.dart';
 import 'package:silent_moon/repository/counter/counter_repository.dart';
 
@@ -13,9 +14,10 @@ class CounterViewModel extends GetxController {
   UserModel get currentUser => _currentUser;
   late List<UserModel> _users;
   List<UserModel> get users => _users;
+  RxList<MessageModel> _messages = <MessageModel>[].obs;
+ RxList<MessageModel> get messages => _messages;
   late Rx<Status> _usersStatus;
   Rx<Status> get usersStatus => _usersStatus;
-
   late Rx<Status> _userStatus;
   Rx<Status> get userStatus => _userStatus;
   void incrementCounter() {
