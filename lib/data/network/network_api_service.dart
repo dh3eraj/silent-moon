@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:silent_moon/data/app_exception.dart';
@@ -31,8 +30,6 @@ class NetworkApiService implements BaseApiService {
 }
 
 dynamic jsonResponse(Response response) {
-  log("statusCode : ${response.statusCode}");
-  log("body : ${response.body}");
   switch (response.statusCode) {
     case 200:
       return jsonDecode(response.body);

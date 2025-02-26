@@ -5,6 +5,7 @@ import 'package:silent_moon/repository/counter/counter_repository.dart';
 import 'package:silent_moon/view_model/counter/controllers/counter_view_model.dart';
 
 class DependencyInjection {
+  
  static Future<void> setupServiceLocator()async
   {
     Get.lazyPut<Client>(() => Client());
