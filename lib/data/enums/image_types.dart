@@ -1,0 +1,1 @@
+enum ImageTypes{normal,svg}

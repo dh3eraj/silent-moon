@@ -3,7 +3,7 @@ import 'package:silent_moon/data/network/network_api_service.dart';
 import 'package:silent_moon/model/counter/user_data_response_model.dart';
 import 'package:silent_moon/model/counter/user_list_response_model.dart';
 import 'package:silent_moon/model/counter/user_model.dart';
-import 'package:silent_moon/res/api_strings.dart';
+import 'package:silent_moon/res/constants/api_strings.dart';
 
 class CounterRepository {
   final NetworkApiService _networkApiService;
