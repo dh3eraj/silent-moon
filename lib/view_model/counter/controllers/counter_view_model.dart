@@ -14,7 +14,7 @@ class CounterViewModel extends GetxController {
   UserModel get currentUser => _currentUser;
   late List<UserModel> _users;
   List<UserModel> get users => _users;
-  RxList<MessageModel> _messages = <MessageModel>[].obs;
+  final RxList<MessageModel> _messages = <MessageModel>[].obs;
  RxList<MessageModel> get messages => _messages;
   late Rx<Status> _usersStatus;
   Rx<Status> get usersStatus => _usersStatus;
