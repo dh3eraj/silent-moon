@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:silent_moon/config/dependency_injection.dart';
 import 'package:silent_moon/config/routes.dart';
 
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        fontFamily: GoogleFonts.poppins.toString()
       ),
       routerConfig: AppRoutes.goRouter,
     );
