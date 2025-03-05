@@ -4,7 +4,7 @@ import 'package:silent_moon/config/routes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await DependencyInjection.setupServiceLocator();
+  await setupServiceLocator();
   runApp(const MyApp());
 }
 
