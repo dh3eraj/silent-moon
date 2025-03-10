@@ -101,7 +101,12 @@ class AuthView extends StatelessWidget {
             60.verticalSpace,
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16).w,
-              child: ActionButton('SIGN UP'),
+              child: ActionButton(
+                'SIGN UP',
+                onTap: () {
+                  context.go('/auth/signup');
+                },
+              ),
             ),
             20.verticalSpace,
             RichText(

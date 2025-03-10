@@ -8,4 +8,6 @@ class Svgs {
   static const String arrowLeft = '$_baseUrl/arrow-left.svg';
   static const String facebook = '$_baseUrl/facebook.svg';
   static const String google = '$_baseUrl/google.svg';
+  static const String eyeOpen = '$_baseUrl/eye-open.svg';
+  static const String tickGreen = '$_baseUrl/tick-green.svg';
 }

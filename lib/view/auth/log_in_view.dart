@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:silent_moon/res/constants/app_colors.dart';
 import 'package:silent_moon/res/constants/svgs.dart';
@@ -115,7 +116,9 @@ class _LogInViewState extends State<LogInView> {
                       WidgetSpan(child: 7.horizontalSpace),
                       WidgetSpan(
                         child: GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            context.go('/auth/signup');
+                          },
                           child: Text(
                             'SIGN UP',
                             style: GoogleFonts.poppins(

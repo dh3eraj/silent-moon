@@ -89,7 +89,7 @@ class CustomTextField extends StatelessWidget {
             fontWeight: FontWeight.w300,
             color: Color(0xFFA1A4B2),
             letterSpacing: 0.05.sp,
-            height: 1.081.sp,
+            height: obscureText ? 0.sp : 1.081.sp,
           ),
       obscureText: obscureText,
       obscuringCharacter: obscuringCharacter,
