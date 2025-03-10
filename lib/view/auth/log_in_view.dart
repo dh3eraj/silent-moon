@@ -8,14 +8,14 @@ import 'package:silent_moon/res/widgets/custom_app_bar.dart';
 import 'package:silent_moon/res/widgets/custom_image.dart';
 import 'package:silent_moon/res/widgets/custom_text_field.dart';
 
-class LoginView extends StatefulWidget {
-  const LoginView({super.key});
+class LogInView extends StatefulWidget {
+  const LogInView({super.key});
 
   @override
-  State<LoginView> createState() => _LoginViewState();
+  State<LogInView> createState() => _LogInViewState();
 }
 
-class _LoginViewState extends State<LoginView> {
+class _LogInViewState extends State<LogInView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
