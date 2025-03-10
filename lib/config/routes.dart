@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:silent_moon/view/auth/auth_view.dart';
+import 'package:silent_moon/view/auth/login_view.dart';
 import 'package:silent_moon/view/counter/user_chat_screen.dart';
 import 'package:silent_moon/view/counter/user_details_screen.dart';
 import 'package:silent_moon/view/counter/user_list_screen.dart';
@@ -51,6 +52,14 @@ class AppRoutes {
         builder: (context, state) {
           return AuthView();
         },
+        routes: [
+          GoRoute(
+            path: '/login',
+            builder: (context, state) {
+              return LoginView();
+            },
+          ),
+        ],
       ),
     ],
   );
