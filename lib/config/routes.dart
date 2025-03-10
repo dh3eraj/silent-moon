@@ -1,23 +1,19 @@
 import 'package:go_router/go_router.dart';
+import 'package:silent_moon/view/auth/auth_view.dart';
+import 'package:silent_moon/view/auth/log_in_view.dart';
+import 'package:silent_moon/view/auth/sign_up_view.dart';
 import 'package:silent_moon/view/counter/user_chat_screen.dart';
 import 'package:silent_moon/view/counter/user_details_screen.dart';
 import 'package:silent_moon/view/counter/user_list_screen.dart';
 import 'package:silent_moon/view/splash/splash_screen.dart';
 
 class AppRoutes {
-  // static const String homeScreen = '/';
-  // static const String secondScreen = 'secondScreen';
   static const String users = 'users';
+  static const String auth = 'auth';
 
   static GoRouter goRouter = GoRouter(
-    // initialLocation: "/",
+    initialLocation: "/auth",
     routes: [
-      // GoRoute(
-      //   path: homeScreen,
-      //   builder: (context, state) {
-      //     return HomeScreen();
-      //   },
-      // ),
       GoRoute(
         path: "/",
         builder: (context, state) {
@@ -48,6 +44,27 @@ class AppRoutes {
                 },
               ),
             ],
+          ),
+        ],
+      ),
+      GoRoute(
+        name: auth,
+        path: '/auth',
+        builder: (context, state) {
+          return AuthView();
+        },
+        routes: [
+          GoRoute(
+            path: '/login',
+            builder: (context, state) {
+              return LogInView();
+            },
+          ),
+          GoRoute(
+            path: '/signup',
+            builder: (context, state) {
+              return SignUpView();
+            },
           ),
         ],
       ),

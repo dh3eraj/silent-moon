@@ -1,6 +1,22 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
+  /*
+    >>> New
+  */
+  static Color bg = const Color(0xFFE5E5E5);
+  static Color text = const Color(0xFF3F414E);
+  static Color textLight = const Color(0xFFA1A4B2);
+  static Color actionButton = const Color(0xFF8E97FD);
+  static Color actionButtonText = const Color(0xFFF6F1FB);
+
+  /*
+    <<< New
+  */
+
+  /*
+    >>> Old
+  */
   static Color primaryDay300 = const Color(0xFFF3FF70);
   static Color primaryDay500 = const Color(0xFFCEF201);
   static Color primaryDay600 = const Color(0xFFBBCC00);
@@ -30,4 +46,7 @@ class AppColors {
   static Color information500 = const Color(0xFF54A6FF);
 
   static Color shade = const Color(0xFF1E1A1A);
+  /*
+    <<< Old
+  */
 }
