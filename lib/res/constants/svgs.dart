@@ -3,6 +3,7 @@ class Svgs {
   static const String splash = '$_baseUrl/splash.svg';
   static const String authGirl = '$_baseUrl/auth-girl.svg';
   static const String moonMountain = '$_baseUrl/moon-mountain.svg';
+  static const String moonMountainRadial = '$_baseUrl/moon-mountain-radial.svg';
   static const String frame = '$_baseUrl/frame.svg';
   static const String backgroundHeader = '$_baseUrl/background-header.svg';
   static const String arrowLeft = '$_baseUrl/arrow-left.svg';
@@ -10,4 +11,5 @@ class Svgs {
   static const String google = '$_baseUrl/google.svg';
   static const String eyeOpen = '$_baseUrl/eye-open.svg';
   static const String tickGreen = '$_baseUrl/tick-green.svg';
+  static const String girlMeditation = '$_baseUrl/girl-meditation.svg';
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:silent_moon/res/constants/app_colors.dart';
 import 'package:silent_moon/res/constants/svgs.dart';
@@ -179,7 +180,12 @@ class _SignUpViewState extends State<SignUpView> {
                   ],
                 ),
                 32.verticalSpace,
-                ActionButton('GET STARTED'),
+                ActionButton(
+                  'GET STARTED',
+                  onTap: () {
+                    context.go('/welcome');
+                  },
+                ),
                 20.verticalSpace,
               ],
             ),
