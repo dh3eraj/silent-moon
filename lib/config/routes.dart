@@ -6,6 +6,7 @@ import 'package:silent_moon/view/counter/user_chat_screen.dart';
 import 'package:silent_moon/view/counter/user_details_screen.dart';
 import 'package:silent_moon/view/counter/user_list_screen.dart';
 import 'package:silent_moon/view/splash/splash_screen.dart';
+import 'package:silent_moon/view/welcome/welcome_view.dart';
 
 class AppRoutes {
   static const String users = 'users';
@@ -67,6 +68,12 @@ class AppRoutes {
             },
           ),
         ],
+      ),
+         GoRoute(
+        path: "/welcome",
+        builder: (context, state) {
+          return WelcomeView();
+        },
       ),
     ],
   );
