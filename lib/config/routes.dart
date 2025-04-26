@@ -69,7 +69,7 @@ class AppRoutes {
           ),
         ],
       ),
-         GoRoute(
+      GoRoute(
         path: "/welcome",
         builder: (context, state) {
           return WelcomeView();
