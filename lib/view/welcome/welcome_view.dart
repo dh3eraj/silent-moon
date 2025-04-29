@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:silent_moon/config/routes.dart';
 import 'package:silent_moon/res/constants/svgs.dart';
 import 'package:silent_moon/res/widgets/action_button.dart';
 import 'package:silent_moon/res/widgets/custom_image.dart';
@@ -13,6 +15,11 @@ class WelcomeView extends StatefulWidget {
 }
 
 class _WelcomeViewState extends State<WelcomeView> {
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -110,6 +117,9 @@ class _WelcomeViewState extends State<WelcomeView> {
                   'GET STARTED',
                   textColor: Color(0xFF3F414E),
                   backgroundColor: Color(0xFFEBEAEC),
+                  onTap: () {
+                    context.goNamed(AppRoutes.topic);
+                  },
                 ),
               ),
             ],

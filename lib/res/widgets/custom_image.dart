@@ -9,22 +9,23 @@ class CustomImage extends StatelessWidget {
   final BoxFit? fit;
   final ImageTypes type;
   final FilterQuality? filterQuality;
-
-  const CustomImage(
+final ColorFilter? colorFilter;
+  const CustomImage.normal(
     this.src, {
     super.key,
     this.width,
     this.height,
     this.fit,
     this.filterQuality,
-  }) : type = ImageTypes.normal;
+  }) : type = ImageTypes.normal, colorFilter = null;
 
   const CustomImage.svg(
     this.src, {
     super.key,
     this.width,
     this.height,
-    this.fit,
+    this.fit, this.colorFilter,
+
   }) : type = ImageTypes.svg,
        filterQuality = null;
 
@@ -45,6 +46,7 @@ class CustomImage extends StatelessWidget {
           width: width,
           height: height,
           fit: fit ?? BoxFit.contain,
+          colorFilter: colorFilter
         );
     }
   }

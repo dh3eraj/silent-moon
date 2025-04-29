@@ -7,9 +7,12 @@ class Svgs {
   static const String frame = '$_baseUrl/frame.svg';
   static const String backgroundHeader = '$_baseUrl/background-header.svg';
   static const String arrowLeft = '$_baseUrl/arrow-left.svg';
+  static const String clouds = '$_baseUrl/clouds.svg';
   static const String facebook = '$_baseUrl/facebook.svg';
   static const String google = '$_baseUrl/google.svg';
   static const String eyeOpen = '$_baseUrl/eye-open.svg';
   static const String tickGreen = '$_baseUrl/tick-green.svg';
+  static const String reduceStress = '$_baseUrl/reduce-stress.svg';
+  static const String improvePerformanee = '$_baseUrl/improve-performanee.svg';
   static const String girlMeditation = '$_baseUrl/girl-meditation.svg';
 }

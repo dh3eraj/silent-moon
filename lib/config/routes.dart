@@ -5,15 +5,18 @@ import 'package:silent_moon/view/auth/sign_up_view.dart';
 import 'package:silent_moon/view/counter/user_chat_screen.dart';
 import 'package:silent_moon/view/counter/user_details_screen.dart';
 import 'package:silent_moon/view/counter/user_list_screen.dart';
+import 'package:silent_moon/view/onboarding/topic_screen.dart';
 import 'package:silent_moon/view/splash/splash_screen.dart';
 import 'package:silent_moon/view/welcome/welcome_view.dart';
 
 class AppRoutes {
   static const String users = 'users';
   static const String auth = 'auth';
+  static const String topic = '/topic';
 
   static GoRouter goRouter = GoRouter(
-    initialLocation: "/auth",
+    initialLocation: topic,
+  
     routes: [
       GoRoute(
         path: "/",
@@ -73,6 +76,13 @@ class AppRoutes {
         path: "/welcome",
         builder: (context, state) {
           return WelcomeView();
+        },
+      ),
+      GoRoute(
+        path: topic,
+        name: topic,
+        builder: (context, state) {
+          return TopicScreen();
         },
       ),
     ],
